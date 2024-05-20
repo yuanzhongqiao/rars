@@ -1,47 +1,29 @@
-RARS -- RISC-V Assembler and Runtime Simulator
-----------------------------------------------
-
-RARS, the RISC-V Assembler, Simulator, and Runtime, will assemble and simulate
-the execution of RISC-V assembly language programs. Its primary goal is to be
-an effective development environment for people getting started with RISC-V. 
-
-## Features
-
-  - RISC-V IMFDN Base (riscv32 and riscv64)
-  - Several system calls that match behaviour from MARS or SPIKE.
-  - Support for debugging using breakpoints and/or `ebreak`
-  - Side by side comparison from pseudo-instruction to machine code with
-    intermediate steps
-  - Multifile assembly using either files open or a directory
-
-## Documentation
-
-Documentation for supported [instructions](https://github.com/TheThirdOne/rars/wiki/Supported-Instructions), [system calls](https://github.com/TheThirdOne/rars/wiki/Environment-Calls), [assembler directives](https://github.com/TheThirdOne/rars/wiki/Assembler-Directives) and more can be found on the [wiki](https://github.com/TheThirdOne/rars/wiki). Documentation included in the download can be accessed via the help menu. 
-
-## Download
-
-RARS is distributed as an executable jar. You will need at least Java 8 to run it. 
-
-The latest stable release can be found [here](https://github.com/TheThirdOne/rars/releases/latest), a release with the latest developments can be found on the [continuous release](https://github.com/TheThirdOne/rars/releases/tag/continuous), and the [releases page](https://github.com/TheThirdOne/rars/releases) contains all previous stable releases with patch notes.
-
-Alternatively, if you wish to make your own jar and/or modify the code, you
-should clone the repo with `git clone https://github.com/TheThirdOne/rars --recursive`.
-Running the script `./build-jar.sh` on a Unix system will build `rars.jar`.
-
-## Screenshot
-
-![Screenshot of sample program](screenshot.png)
-
-## Changes from MARS 4.5
-
-RARS was built on MARS 4.5 and owes a lot to the development of MARS; its
-important to note what are new developments and what come straight from MARS.
-Besides moving from supporting MIPS to RISC-V and the associated small changes,
-there are several general changes worth noting.
-
-  - Instructions can now be hot-loaded like Tools. If you want to support an additional extension to the RISC-V instruction set. the .class files just need to be added to the right folder
-  - ScreenMagnifier, MARS Bot, Intro to Tools, Scavenger Hunt, and MARS Xray were removed from the included tools. ScreenMagnifier, MARS Bot, Intro to Tools, and Scavenger Hunt were removed because they provide little benefit. And MARS Xray was removed because it is not set up to work with RISC-V, however if someone ports it, it could be merged in.
-  - Removed delayed branching
-  - Removed the print feature
-  - Added a testing framework to verify compatibility with the RISC-V specification
-  - Significant internal restructuring and refactoring.
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RARS——RISC-V 汇编器和运行时模拟器</font></font></h2><a id="user-content-rars----risc-v-assembler-and-runtime-simulator" class="anchor" aria-label="永久链接：RARS——RISC-V 汇编器和运行时模拟器" href="#rars----risc-v-assembler-and-runtime-simulator"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RARS（RISC-V 汇编器、模拟器和运行时）将汇编并模拟 RISC-V 汇编语言程序的执行。其主要目标是为开始使用 RISC-V 的人们提供一个有效的开发环境。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2><a id="user-content-features" class="anchor" aria-label="永久链接：特点" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RISC-V IMFDN 基础（riscv32 和 riscv64）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">几个与 MARS 或 SPIKE 的行为相匹配的系统调用。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持使用断点和/或</font></font><code>ebreak</code></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从伪指令到带有中间步骤的机器代码的并排比较</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用打开的文件或目录进行多文件汇编</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></h2><a id="user-content-documentation" class="anchor" aria-label="永久链接：文档" href="#documentation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/TheThirdOne/rars/wiki/Supported-Instructions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关支持的指令</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/TheThirdOne/rars/wiki/Environment-Calls"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">系统调用</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/TheThirdOne/rars/wiki/Assembler-Directives"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">汇编指令</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等的</font><font style="vertical-align: inherit;">文档可以在</font></font><a href="https://github.com/TheThirdOne/rars/wiki"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">wiki</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上找到。下载中包含的文档可以通过帮助菜单访问。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font></h2><a id="user-content-download" class="anchor" aria-label="永久链接： 下载" href="#download"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RARS 作为可执行 jar 分发。您至少需要 Java 8 才能运行它。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最新的稳定版本可以</font></font><a href="https://github.com/TheThirdOne/rars/releases/latest"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">找到，具有最新开发的版本可以在</font></font><a href="https://github.com/TheThirdOne/rars/releases/tag/continuous"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连续版本</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上找到，并且</font></font><a href="https://github.com/TheThirdOne/rars/releases"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本页面</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含所有以前的稳定版本以及补丁说明。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者，如果您希望制作自己的 jar 和/或修改代码，您应该使用</font></font><code>git clone https://github.com/TheThirdOne/rars --recursive</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font><code>./build-jar.sh</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Unix 系统上</font><font style="vertical-align: inherit;">运行脚本将构建</font></font><code>rars.jar</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">截屏</font></font></h2><a id="user-content-screenshot" class="anchor" aria-label="永久链接：屏幕截图" href="#screenshot"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/TheThirdOne/rars/blob/master/screenshot.png"><img src="/TheThirdOne/rars/raw/master/screenshot.png" alt="示例程序截图" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相对于 MARS 4.5 的变更</font></font></h2><a id="user-content-changes-from-mars-45" class="anchor" aria-label="永久链接：MARS 4.5 的更改" href="#changes-from-mars-45"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RARS 建立在 MARS 4.5 之上，很大程度上得益于 MARS 的发展；重要的是要注意哪些是新的发展以及哪些是直接来自火星的。除了从支持 MIPS 转向 RISC-V 以及相关的小变化之外，还有一些值得注意的一般变化。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在可以像工具一样热加载指令。如果您想支持 RISC-V 指令集的额外扩展。 .class 文件只需添加到正确的文件夹中</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ScreenMagnifier、MARS Bot、工具简介、Scavenger Hunt 和 MARS Xray 已从随附工具中删除。 ScreenMagnifier、MARS Bot、Intro to Tools 和 Scavenger Hunt 被删除，因为它们提供的好处很少。 MARS Xray 被删除，因为它未设置为与 RISC-V 一起使用，但是如果有人移植它，它可以合并进去。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">删除延迟分支</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">删除了打印功能</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加了测试框架以验证与 RISC-V 规范的兼容性</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重大的内部重组和重构。</font></font></li>
+</ul>
+</article></div>
